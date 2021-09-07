@@ -14,10 +14,10 @@ function backup() {
    then
       local BACK="/tmp/$(basename ${1}).$(date +%F).XXXX"
       local TMP_DIR=$(mktemp -d "$BACK") # Uses -d option for mktemp to make directory
-      echo "[+] Backing up $1 to ${TMP_DIR}..."
+      echo "[*] Backing up $1 to ${TMP_DIR}..."
       cp -r ./${1}/* $TMP_DIR # Copies the content of the directory into the new temp dir
    else
-      echo "[-] The file or directory, ${1}, does not exist."
+      echo "[!] The file or directory, ${1}, does not exist."
       return 1 # Setting return code for error to 1
    fi
 }
